@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Category {
-    Underweight(0,0),
+    Underweight(0,0),    //lower limits of mass, bmi
     Healthy(60,18.5),
     Overweight(80,25d),
     Obesity(100,30d);
@@ -23,7 +23,7 @@ public enum Category {
     public final int mass;
     public final double bmi;
 
-    private Category(int mass, double bmi) {
+    Category(int mass, double bmi) {
         this.mass = mass;
         this.bmi = bmi;
     }

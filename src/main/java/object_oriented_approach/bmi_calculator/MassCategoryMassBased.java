@@ -1,23 +1,19 @@
 package object_oriented_approach.bmi_calculator;
 
-public class MassCategoryMassBased extends  MassCategoryEvaluator{
+public class MassCategoryMassBased extends  MassCategoryEvaluator <Integer> {
 
+    final Integer WHALE_MASS_IN_KG=1000;
 
-    public MassCategoryMassBased(double input) {
+    public MassCategoryMassBased(Integer input) {
         super(input);
+        if (input> WHALE_MASS_IN_KG || input<=0) {
+            throw new IllegalArgumentException("Non possible mass");
+        }
     }
 
     @Override
-    public Category findCategory() {
-
-        for (int i = Category.values().length-1; i >= 0; i--) {
-            Category  category = Category.values()[i];
-            if (super.input > Category.massLimit(category)) {
-                return category;
-            }
-
-        }
-        return null;
+    protected boolean isLimitLargerThanInput(Category category) {
+        return (super.input > Category.massLimit(category));
     }
 
 }

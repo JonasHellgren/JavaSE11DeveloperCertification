@@ -1,22 +1,19 @@
 package object_oriented_approach.bmi_calculator;
 
-public class MassCategoryBmiBased extends MassCategoryEvaluator {
+public class MassCategoryBmiBased extends MassCategoryEvaluator <Double> {
 
-    public MassCategoryBmiBased(double input) {
+    final Double CRAZY_BMI=100d;
+
+    public MassCategoryBmiBased(Double input) {
         super(input);
+        if (input> CRAZY_BMI || input<=0) {
+            throw new IllegalArgumentException("Non possible BMI");
+        }
     }
 
 
     @Override
-    public Category findCategory() {
-
-        for (int i = Category.values().length-1; i >= 0; i--) {
-            Category  category = Category.values()[i];
-            if (super.input > Category.bmiLimit(category)) {
-                return category;
-            }
-
-        }
-        return null;
+    protected boolean isLimitLargerThanInput(Category category) {
+        return (super.input > Category.bmiLimit(category));
     }
 }
