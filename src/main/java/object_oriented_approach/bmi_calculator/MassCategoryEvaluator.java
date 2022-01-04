@@ -8,14 +8,14 @@ public abstract class MassCategoryEvaluator<T> {
         this.input = input;
     }
 
-    protected abstract boolean isLimitLargerThanInput(Category category);
+    protected abstract boolean isLimitLargerThanInput(MassCategory massCategory);
 
-    public Category findCategory() {
+    public MassCategory findCategory() {
 
-        for (int i = Category.values().length-1; i >= 0; i--) {
-            Category  category = Category.values()[i];
-            if (isLimitLargerThanInput(category)) {  //sub class defines isLimitLargerThanInput
-                return category;
+        for (int i = MassCategory.values().length-1; i >= 0; i--) {
+            MassCategory massCategory = MassCategory.values()[i];
+            if (isLimitLargerThanInput(massCategory)) {  //sub class defines isLimitLargerThanInput
+                return massCategory;
             }
 
         }

@@ -11,9 +11,8 @@ public class MassCategoryBmiBased extends MassCategoryEvaluator <Double> {
         }
     }
 
-
     @Override
-    protected boolean isLimitLargerThanInput(Category category) {
-        return (super.input > Category.bmiLimit(category));
+    protected boolean isLimitLargerThanInput(MassCategory massCategory) {
+        return (super.input > MassCategory.bmiLimit(massCategory));
     }
 }

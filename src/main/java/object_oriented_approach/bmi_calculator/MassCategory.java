@@ -3,18 +3,17 @@ package object_oriented_approach.bmi_calculator;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum Category {
-    Underweight(0,0),    //lower limits of mass, bmi
+public enum MassCategory {
+    Underweight(0,0),    //lower limits of mass in kg, bmi
     Healthy(60,18.5),
     Overweight(80,25d),
     Obesity(100,30d);
 
-
-    private static final Map<Category,Integer> BY_MASS = new HashMap<>();
-    private static final Map<Category, Double> BY_BMI = new HashMap<>();
+    private static final Map<MassCategory,Integer> BY_MASS = new HashMap<>();
+    private static final Map<MassCategory, Double> BY_BMI = new HashMap<>();
 
     static {
-        for (Category e : values()) {
+        for (MassCategory e : values()) {
             BY_MASS.put(e,e.mass);
             BY_BMI.put(e,e.bmi);
         }
@@ -23,17 +22,17 @@ public enum Category {
     public final int mass;
     public final double bmi;
 
-    Category(int mass, double bmi) {
+    MassCategory(int mass, double bmi) {
         this.mass = mass;
         this.bmi = bmi;
     }
 
 
-    public static int  massLimit(Category c) {
+    public static int  massLimit(MassCategory c) {
         return BY_MASS.get(c);
     }
 
-    public static double bmiLimit(Category c) {
+    public static double bmiLimit(MassCategory c) {
         return BY_BMI.get(c);
     }
 }

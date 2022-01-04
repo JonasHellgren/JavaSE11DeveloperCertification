@@ -12,8 +12,8 @@ public class MassCategoryMassBased extends  MassCategoryEvaluator <Integer> {
     }
 
     @Override
-    protected boolean isLimitLargerThanInput(Category category) {
-        return (super.input > Category.massLimit(category));
+    protected boolean isLimitLargerThanInput(MassCategory massCategory) {
+        return (super.input > MassCategory.massLimit(massCategory));
     }
 
 }
