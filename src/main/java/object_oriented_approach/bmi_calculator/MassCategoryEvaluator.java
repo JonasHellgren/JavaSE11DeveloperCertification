@@ -17,7 +17,6 @@ public abstract class MassCategoryEvaluator<T> {
             if (isLimitLargerThanInput(massCategory)) {  //sub class defines isLimitLargerThanInput
                 return massCategory;
             }
-
         }
         throw new RuntimeException ("Failed to find Category");
     }

@@ -46,9 +46,9 @@ A catch block above another must be a sub-class, hence following does not work
 
 One shall not try to catch an error, example error is OutOfMemoryError. Following will give StackOverflowError
 
-        calculate(1, 2);
-    }
-
+    ------------------
+    calculate(1, 2);
+    ------------------
     private static void calculate(int a, int b) {
         calculate(a, b);
     }
